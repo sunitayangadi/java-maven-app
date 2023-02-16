@@ -1,6 +1,12 @@
 pipeline {
 	agent any
 	stages {
+	    stage ('cleanup') {
+	    steps {
+	      cleanWs()     
+	    }
+	}
+	stages {
 		stage ('build') {
 			steps {
 				sh 'mvn clean install -DskipTests'
