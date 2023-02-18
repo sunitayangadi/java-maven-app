@@ -1,11 +1,6 @@
 pipeline {
-	agent {
-		label 'slave2'
-	}
-	tools {
-        maven 'm1' 
-    }
-	stages {
+	agent any 
+		stages {
 		stage('Build') {
 			steps {
 				sh 'mvn -B -DskipTests clean install'
