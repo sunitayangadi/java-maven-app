@@ -6,7 +6,7 @@ pipeline {
                         withSonarQubeEnv('my_sonarqube') {
 				sh 'mvn clean install -DskipTests sonar:sonar'
 			}
-		
+			}
 		}
 		stage ('test') {
 			steps {
