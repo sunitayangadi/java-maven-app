@@ -1,9 +1,10 @@
 pipeline {
 	agent any
 		stages {
-		stage ('build') {
+		stage ('build && SonarQube analysis') {
 			steps {
-				sh 'mvn clean install -DskipTests'
+                        withSonarQubeEnv('my_sonarqube') {
+				sh 'mvn clean install -DskipTests sonar:sonar'
 			}
 		
 		}
